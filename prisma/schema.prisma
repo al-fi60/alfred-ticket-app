@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  output   = "./generated/client"
 }
 
 datasource db {
@@ -50,7 +51,3 @@ enum Role {
   USER
 }
 
-generator client {
-  provider = "prisma-client-js"
-  output   = "./generated/client"
-}
