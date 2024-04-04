@@ -49,3 +49,8 @@ enum Role {
   TECH
   USER
 }
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
