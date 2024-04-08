@@ -1,5 +1,6 @@
 import React from "react";
 import prisma from "@/prisma/db";
+import { Status } from "@prisma/client";
 import DashRecentTickets from "@/components/DashRecentTickets";
 import DashChart from "@/components/DashChart";
 
@@ -25,7 +26,15 @@ const Dashboard = async () => {
     },
   });
 
-  const data = groupTicket.map((item) => {
+  // Define the type for the 'item' parameter
+  type GroupedTicket = {
+    status: Status;
+    _count: {
+      id: number;
+    };
+  };
+
+  const data = groupTicket.map((item: GroupedTicket) => {
     return {
       name: item.status,
       total: item._count.id,
